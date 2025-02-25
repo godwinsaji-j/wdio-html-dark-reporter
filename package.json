@@ -1,0 +1,22 @@
+{
+  "name": "wdio-html-dark-reporter",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "custom-reporter.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wdio/reporter": "^9.5.0",
+    "jsdom": "^26.0.0",
+    "uuid": "^11.0.5",
+    "xml-formatter": "^3.6.4"
+  }
+}
