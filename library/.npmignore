@@ -1,0 +1,8 @@
+#Folders
+node_modules/
+test/
+archive/
+.git/
+#Files
+.gitignore
+package-lock.json
