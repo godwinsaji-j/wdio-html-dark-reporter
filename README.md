@@ -73,3 +73,7 @@ await process.emit("add-test-step", {
           screenshotName: "Page Loaded"
         });
 ```
+
+# Sample View (Feel free to share your ideas)
+
+[View HTML Content](https://github.com/godwinsaji-j/wdio-html-dark-reporter/blob/main/consumer-cjs/test1/detailed-report.html)

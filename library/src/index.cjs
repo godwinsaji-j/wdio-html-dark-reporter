@@ -75,7 +75,7 @@ class CustomReporter extends WDIOReporter {
   }
 
   onTestFail(test, error) {
-    this.write(`Oops! Your test "${test.title}" failed 👏`);
+    this.write(`Oops! Your test "${test.title}" failed ❌`);
   }
 
   onTestSkip(test) {}
