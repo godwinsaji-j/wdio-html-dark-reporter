@@ -44,8 +44,8 @@ class CustomReporter extends WDIOReporter {
   onTestStart(test) {
     this.currentTestFolderPath = this.currentTestFolderPath+`${test.title.replace(/[^a-z0-9]/gi,"_")}`;
     global.currentTestScreenshotPath = this.currentTestFolderPath + "\\screenshots\\"
+    console.log("this.currentTestFolderPath",this.currentTestFolderPath)
     try{
-      console.log("this.currentTestFolderPath",this.currentTestFolderPath)
       if(!fs.existsSync(this.currentTestFolderPath)){
         fs.mkdirSync(this.currentTestFolderPath);
       }
@@ -127,11 +127,7 @@ class CustomReporter extends WDIOReporter {
   registerEvents(){
     process.on('add-test-step',async ({status,command,fieldName,additionalInfo})=>{
       return new Promise(async (resolve,reject)=>{
-      console.log(this.testDOMs.size);
-      console.log("add-test-step global.uid",global.uid)
-      console.log("add-test-step status, stepNumber,command,fieldName,additionalInfo",status, stepNumber,command,fieldName,additionalInfo)
       let constructedStep = await components.testStep(status,this.stepNumber++, command, fieldName,additionalInfo )
-      console.log("constructedStep",constructedStep)
       let dom = await this.testDOMs.get(global.uid);
       let document = await dom.window.document;
       (await document.querySelector(".test-steps")).innerHTML += constructedStep
@@ -141,7 +137,6 @@ class CustomReporter extends WDIOReporter {
     process.on('add-test-step-api',async ({status,serviceName,metaDataMetrics,additionalInfo, endpoint, requestHeaders, requestBody,responseHeaders, responseBody})=>{
       return new Promise(async (resolve,reject)=>{
         try{
-          console.log(this.testDOMs.size);
           let constructedStep = await components.testStepApi(status,this.stepNumber++,serviceName,metaDataMetrics,additionalInfo, endpoint, requestHeaders, requestBody,responseHeaders, responseBody )
           let dom = await this.testDOMs.get(global.uid);
           let document = await dom.window.document;
@@ -178,7 +173,7 @@ class CustomReporter extends WDIOReporter {
       return new Promise(async (resolve,reject)=>{
         try{
           //console.log("currentTestFolderPathLL",this.currentTestFolderPath)
-          let screenshotPath = "./screenshots/"+screenshotName.replace(/[^a-z0-9]/gi,"_")+(screenshotName.includes('.png')?"":".png");
+          let screenshotPath = "./screenshots/"+screenshotName.replace(/[^a-z0-9.]/gi,"_")+(screenshotName.includes('.png')?"":".png");
           let constructedStep = await components.testStepImage(stepNumber, screenshotName, screenshotPath)
           // console.log("add-test-step-image constructedStep",constructedStep)
           let dom = await this.testDOMs.get(global.uid);

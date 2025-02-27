@@ -259,7 +259,7 @@ module.exports={
           display: grid;
           align-items: center;
           justify-content: center;
-          grid-template-columns: 0.3fr 0.5fr 1fr 1fr 0.1fr;
+          grid-template-columns: minmax(1rem,0.1fr) minmax(2rem,0.2fr) 1fr 1fr minmax(3rem,0.3fr);
           gap: 1rem;
           width: 100%;
           background-color: var(--secondary-bg-color);
@@ -268,7 +268,7 @@ module.exports={
           border-radius: 0.5rem;
           padding: 1rem 0.5rem;
         }
-        .test-step .action-items {
+        .test-step {
           display: flex;
           align-items: center;
           justify-content: flex-end;
@@ -311,6 +311,7 @@ module.exports={
           min-width: 0; /* Allow items to shrink */
           padding: 0.5rem;
           border-radius: 0.5rem;
+          overflow:auto
         }
         .test-step .detailed-info .header {
           flex: 1 0 49%; /* Set flex-basis to 50% */
@@ -468,7 +469,7 @@ testStepImage:function(stepNumber, screenshotName, screenshotPath){
   return `<div class="test-step">
             <span class="material-symbols-outlined text-blue">image</span>
             <span>#${stepNumber}</span>
-            <span>Scteenshot</span>
+            <span>Screenshot</span>
             <span>${screenshotName}</span>
             <div class="action-items">
               <span class="material-symbols-outlined">content_copy</span>
