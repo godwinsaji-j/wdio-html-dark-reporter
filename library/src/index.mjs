@@ -83,6 +83,11 @@ class CustomReporter extends WDIOReporter {
 
   async onTestEnd(test) {
     try{
+      let runTime  = ((test._duration)/1000)<60?`${parseFloat(test._duration/1000).toFixed(2)} Secs`:`${parseFloat((test._duration/1000)/60).toFixed(2)}`;
+      if((test._duration)/1000>60){
+      runTime = runTime.split('.');
+      runTime = `${runTime[0]}m ${runTime[1]}s`
+    }
     const dom = this.testDOMs.get(global.uid);
     await this.updateReportStats([{
       name: "Test Status",
@@ -90,7 +95,7 @@ class CustomReporter extends WDIOReporter {
       material_symbol: "verified"
     },{
       name: "Run Time",
-      value: parseFloat(test._duration/1000).toFixed(2)+"Secs",
+      value: runTime,
       material_symbol: "avg_time"
     },
     {

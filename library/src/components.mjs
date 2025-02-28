@@ -172,6 +172,7 @@ export default {
         font-family: poppins, sans-serif;
         background: var(--primary-bg-color);
         color: var(--primary-text-color);
+        overflow-x:hidden
       }
       .material-symbols-outlined{
         cursor: pointer;
@@ -268,14 +269,13 @@ export default {
         border-radius: 0.5rem;
         padding: 1rem 0.5rem;
       }
-      .test-step {
+      .test-step .action-items{
         display: flex;
         align-items: center;
         justify-content: flex-end;
         gap: 1rem;
       }
-      .test-step .action-items,
-      .test-step-info {
+      .test-step .test-step-info {
         display: flex;
         align-items: center;
         justify-content: flex-start;

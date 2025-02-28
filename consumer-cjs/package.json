@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "math-add": "file:math-add-1.0.0.tgz",
-    "wdio-chromedriver-service": "^8.1.1"
+    "wdio-chromedriver-service": "^8.1.1",
+    "wdio-html-dark-reporter": "file:math-add-1.0.0.tgz"
   },
   "devDependencies": {
     "@wdio/cli": "^9.10.1",

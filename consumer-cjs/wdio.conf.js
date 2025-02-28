@@ -1,4 +1,4 @@
-const CustomReporter = require("math-add");
+const CustomReporter = require("wdio-html-dark-reporter");
 exports.config = {
     //
     // ====================
