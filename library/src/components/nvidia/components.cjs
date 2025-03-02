@@ -1,8 +1,13 @@
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+module.exports={
+    HTML: `<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
     <style>
       /* Pretty printing styles. Used with prettify.js. */
       /* Vim sunburst theme by David Leibovic */
@@ -769,210 +774,12 @@
     <nav id="navbar"></nav>
     <main>
       <section class="level-one-info" id="stats-left">
-      <div class="l1-info-card">
-              <div class="">
-                <span class="material-symbols-outlined icon undefined">verified</span>
-              </div>
-              <div class="text">
-                <div class="header">Test Status</div>
-                <div class="content">PASSED</div>
-              </div>
-            </div><div class="l1-info-card">
-              <div class="">
-                <span class="material-symbols-outlined icon blue">avg_time</span>
-              </div>
-              <div class="text">
-                <div class="header">Run Time</div>
-                <div class="content">1.01 Secs</div>
-              </div>
-            </div><div class="l1-info-card">
-              <div class="">
-                <span class="material-symbols-outlined icon undefined">south_america</span>
-              </div>
-              <div class="text">
-                <div class="header">Environment</div>
-                <div class="content">TEST</div>
-              </div>
-            </div><div class="l1-info-card">
-              <div class="">
-                <span class="material-symbols-outlined icon danger">cancel</span>
-              </div>
-              <div class="text">
-                <div class="header">Steps Failed</div>
-                <div class="content">0</div>
-              </div>
-            </div></section>
+      </section>
       <section>
         <div class="l2-info">
             <div class="table test-steps">
                 
-            <div class="test-step">
-              <span class="material-symbols-outlined text-success">check_circle</span>
-              <span>#1</span>
-              <span>click</span>
-              <span>SF</span>
-              <div class="action-items">
-                <span class="placeholder"></span>
-                <span class="material-symbols-outlined" onclick="navigator.clipboard.writeText(this.getAttribute('copy-info'))" copy-info="//h1[@title=&quot;Jesus&quot;]">content_copy</span>
-              </div>
-          </div><div class="test-step">
-            <span class="material-symbols-outlined text-success">cloud_done</span>
-            <span>#2</span>
-            <span>Inquiry</span>
-            <span class="test-step-info">
-              <div class="badge-rect bg-success">200 OK</div><div class="badge-rect bg-danger">5.6 secs</div>
-            </span>
-            <div class="action-items">
-              <span class="material-symbols-outlined">content_copy</span>
-              <span class="material-symbols-outlined">downloading</span>
-              <span class="material-symbols-outlined" onclick="document.getElementById('modal-body').innerHTML = this.parentElement.parentElement.querySelector('.detailed-info').innerHTML;document.querySelector('.modal-wrapper').classList.toggle('d-none')">expand_content</span>
             </div>
-            <div class="detailed-info d-none">
-              <div class="row">
-                <span class="payload bg-primary">https://www.google.com</span>
-              </div>
-              <div class="row">
-                <span class="header">Request Headers</span>
-                <span class="header">Response Headers</span>
-              </div>
-              <div class="row">
-                <pre class="payload prettyprint lang-js">{
- "content-type": "application/json"
-}</pre>
-                <pre class="payload prettyprint lang-js">{
- "content-type": "application/json"
-}</pre>
-              </div>
-              <div class="row">
-                <span class="header">Request Body</span>
-                <span class="header">Response Body</span>
-              </div>
-              <div class="row">
-                <pre class="payload prettyprint lang-js">{
- "name": "reporter"
-}</pre>
-                <pre class="payload downloadable prettyprint lang-js">{
- "myResp": "success"
-}</pre>
-              </div>
-            </div>
-          </div><div class="test-step">
-          <span class="material-symbols-outlined text-success">check_circle</span>
-            <span>#3</span>
-            <span>Mongox` ODS</span>
-            <span class="test-step-info">
-              
-            </span>
-            <div class="action-items">
-              <span class="material-symbols-outlined">content_copy</span>
-              <span class="material-symbols-outlined">downloading</span>
-              <span class="material-symbols-outlined" onclick="document.getElementById('modal-body').innerHTML = this.parentElement.parentElement.querySelector('.detailed-info').innerHTML;document.querySelector('.modal-wrapper').classList.toggle('d-none')">expand_content</span>
-            </div>
-            <div class="detailed-info d-none">
-              <div class="row">
-                <span class="payload bg-primary">db query</span>
-              </div>
-              <div class="row">
-                <span class="header">Response</span>
-              </div>
-              <div class="row">
-                <pre class="payload downloadable prettyprint lang-js">{
- "myResp": "success"
-}</pre>
-              </div>
-            </div>
-          </div><div class="test-step">
-          <span class="material-symbols-outlined text-success">check_circle</span>
-            <span>#4</span>
-            <span>Agent</span>
-            <span class="test-step-info">
-              
-            </span>
-            <div class="action-items">
-              <span class="material-symbols-outlined">content_copy</span>
-              <span class="material-symbols-outlined">downloading</span>
-              <span class="material-symbols-outlined" onclick="document.getElementById('modal-body').innerHTML = this.parentElement.parentElement.querySelector('.detailed-info').innerHTML;document.querySelector('.modal-wrapper').classList.toggle('d-none')">expand_content</span>
-            </div>
-            <div class="detailed-info d-none">
-              <div class="row">
-                <span class="payload bg-primary">db query</span>
-              </div>
-              <div class="row">
-                <span class="header">Response</span>
-              </div>
-              <div class="row">
-                <pre class="payload downloadable prettyprint lang-xml"><agent><name>Arav</name></agent></pre>
-              </div>
-            </div>
-          </div><div class="test-step">
-          <span class="material-symbols-outlined text-success">check_circle</span>
-            <span>#5</span>
-            <span>Agent</span>
-            <span class="test-step-info">
-              
-            </span>
-            <div class="action-items">
-              <span class="material-symbols-outlined">content_copy</span>
-              <span class="material-symbols-outlined">downloading</span>
-              <span class="material-symbols-outlined" onclick="document.getElementById('modal-body').innerHTML = this.parentElement.parentElement.querySelector('.detailed-info').innerHTML;document.querySelector('.modal-wrapper').classList.toggle('d-none')">expand_content</span>
-            </div>
-            <div class="detailed-info d-none">
-              <div class="row">
-                <span class="payload bg-primary">db query</span>
-              </div>
-              <div class="row">
-                <span class="header">Response</span>
-              </div>
-              <div class="row">
-                <pre class="payload downloadable prettyprint lang-xml">&lt;agent&gt;
-    &lt;name&gt;
-        Arav
-    &lt;/name&gt;
-&lt;/agent&gt;</pre>
-              </div>
-            </div>
-          </div><div class="test-step">
-            <span class="material-symbols-outlined text-blue">image</span>
-            <span>#6</span>
-            <span>Screenshot</span>
-            <span>Page Loaded</span>
-            <div class="action-items">
-              <span class="material-symbols-outlined">content_copy</span>
-              <span class="material-symbols-outlined">downloading</span>
-              <span class="material-symbols-outlined" onclick="document.getElementById('modal-body').innerHTML = this.parentElement.parentElement.querySelector('.detailed-info').innerHTML;document.querySelector('.modal-wrapper').classList.toggle('d-none')">expand_content</span>
-            </div>
-            <div class="detailed-info d-none">
-              <div class="row screenshot">
-                <img src="./screenshots/Page_Loaded.png">
-              </div>
-            </div>
-          </div><div class="row compare-table-wrapper">
-    <div class="compare-table-header">
-        <h4><span class="material-symbols-outlined">compare_arrows</span> Service Comparison</h4>
-    </div>
-    <div class="compare-table">
-        <div class="table-header">
-            <div class="table-row">
-                <div class="table-col"></div>
-                <div class="table-col"></div>
-                <div class="table-col">Field Name</div>
-                <div class="table-col">Expected Value</div>
-                <div class="table-col">Actual Value</div>
-            </div>
-        </div>
-        <div class="table-body" id="rowb252e84c-1491-430c-8b8a-a81411ad66bf" next-row-number="2">
-            
-        <div class="table-row">
-              <div class="table-col"><span class="material-symbols-outlined text-success">check_circle</span></div>
-              <div class="table-col">1</div>
-              <div class="table-col">Names</div><div class="table-col">John Doe</div><div class="table-col">John Doe</div>
-          </div><div class="table-row">
-              <div class="table-col"><span class="material-symbols-outlined text-danger">cancel</span></div>
-              <div class="table-col">1</div>
-              <div class="table-col">Names</div><div class="table-col">Jane Doe</div><div class="table-col">John Doe</div>
-          </div></div>
-    </div>
-</div></div>
         </div>
       </section>
     </main>
@@ -997,6 +804,147 @@
         console.log("Page loaded successfully");
       });
     </script>
+  </body>
+</html>
+`,
+testStep: function(status,stepNumber,command,fieldName,additionalInfo){
+  return `<div class="test-step">
+              ${status && (status.toLowerCase().includes("pass") || status == true)?'<span class="material-symbols-outlined text-success">check_circle</span>':'<span class="material-symbols-outlined text-danger">cancel</span>'}
+              <span>#${stepNumber}</span>
+              <span>${command}</span>
+              <span>${fieldName}</span>
+              <div class="action-items">
+                <span class="placeholder"></span>
+                <span class="material-symbols-outlined" onClick="navigator.clipboard.writeText(this.getAttribute('copy-info'))" copy-info='${additionalInfo}'>content_copy</span>
+              </div>
+          </div>`
+},
+testStepApi: function(status,stepNumber,serviceName,metaDataMetrics = [],additionalInfo, endpoint, requestHeaders, requestBody,responseHeaders, responseBody){
+  return `<div class="test-step">
+            ${status && (status.toLowerCase().includes("pass") || status == true)?'<span class="material-symbols-outlined text-success">cloud_done</span>':'<span class="material-symbols-outlined text-danger">cloud_alert</span>'}
+            <span>#${stepNumber}</span>
+            <span>${serviceName}</span>
+            <span class="test-step-info">
+              ${metaDataMetrics.map(metaDataObject=>{
+                let status = metaDataObject.status
+                return `<div class="badge-rect ${status && (status.toLowerCase().includes("pass") || status == true)?"bg-success":"bg-danger"}">${metaDataObject.value}</div>`
+              }).join('')}
+            </span>
+            <div class="action-items">
+              <span class="material-symbols-outlined">content_copy</span>
+              <span class="material-symbols-outlined">downloading</span>
+              <span class="material-symbols-outlined" onclick="document.getElementById('modal-body').innerHTML = this.parentElement.parentElement.querySelector('.detailed-info').innerHTML;document.querySelector('.modal-wrapper').classList.toggle('d-none')">expand_content</span>
+            </div>
+            <div class="detailed-info d-none">
+              <div class="row">
+                <span class="payload bg-primary">${endpoint}</span>
+              </div>
+              <div class="row">
+                <span class="header">Request Headers</span>
+                <span class="header">Response Headers</span>
+              </div>
+              <div class="row">
+                <pre class="payload prettyprint lang-js">${requestHeaders}</pre>
+                <pre class="payload prettyprint lang-js">${responseHeaders}</pre>
+              </div>
+              <div class="row">
+                <span class="header">Request Body</span>
+                <span class="header">Response Body</span>
+              </div>
+              <div class="row">
+                <pre class="payload prettyprint ${requestBody?.includes("<")?"lang-xml":"lang-js"}">${requestBody}</pre>
+                <pre class="payload downloadable prettyprint ${responseBody?.includes("<")?"lang-xml":"lang-js"}">${responseBody}</pre>
+              </div>
+            </div>
+          </div>`
+},
+testStepPayload: function(status,stepNumber,serviceName,metaDataMetrics = [],additionalInfo, info, payload){
+return `<div class="test-step">
+          ${status && (status.toLowerCase().includes("pass") || status == true)?'<span class="material-symbols-outlined text-success">check_circle</span>':'<span class="material-symbols-outlined text-danger">cancel</span>'}
+            <span>#${stepNumber}</span>
+            <span>${serviceName}</span>
+            <span class="test-step-info">
+              ${metaDataMetrics.map(metaDataObject=>{
+                let status = metaDataObject.status
+                return `<div class="badge-rect ${status && (status.toLowerCase().includes("pass") || status == true)?"bg-success":"bg-danger"}">${metaDataObject.value}</div>`
+              }).join('')}
+            </span>
+            <div class="action-items">
+              <span class="material-symbols-outlined">content_copy</span>
+              <span class="material-symbols-outlined">downloading</span>
+              <span class="material-symbols-outlined" onclick="document.getElementById('modal-body').innerHTML = this.parentElement.parentElement.querySelector('.detailed-info').innerHTML;document.querySelector('.modal-wrapper').classList.toggle('d-none')">expand_content</span>
+            </div>
+            <div class="detailed-info d-none">
+              <div class="row">
+                <span class="payload bg-primary">${info}</span>
+              </div>
+              <div class="row">
+                <span class="header">Response</span>
+              </div>
+              <div class="row">
+                <pre class="payload downloadable prettyprint ${payload?.includes("<")?"lang-xml":"lang-js"}">${payload}</pre>
+              </div>
+            </div>
+          </div>`
+},
+testStepImage:function(stepNumber, screenshotName, screenshotPath){
   
-
-</body></html>
+  return `<div class="test-step">
+            <span class="material-symbols-outlined text-blue">image</span>
+            <span>#${stepNumber}</span>
+            <span>Screenshot</span>
+            <span>${screenshotName}</span>
+            <div class="action-items">
+              <span class="material-symbols-outlined">content_copy</span>
+              <span class="material-symbols-outlined">downloading</span>
+              <span class="material-symbols-outlined" onclick="document.getElementById('modal-body').innerHTML = this.parentElement.parentElement.querySelector('.detailed-info').innerHTML;document.querySelector('.modal-wrapper').classList.toggle('d-none')">expand_content</span>
+            </div>
+            <div class="detailed-info d-none">
+              <div class="row screenshot">
+                <img src="${screenshotPath}">
+              </div>
+            </div>
+          </div>`
+},
+statBox: function(statName,statValue, statMaterialIcon, additionalIconClass){
+  return `<div class="l1-info-card">
+              <div class="">
+                <span class="material-symbols-outlined icon ${additionalIconClass}">${statMaterialIcon}</span>
+              </div>
+              <div class="text">
+                <div class="header">${statName}</div>
+                <div class="content">${statValue}</div>
+              </div>
+            </div>`
+},
+testStepTable:function(tableUUID, tableName, tableHeaders = []){
+  return `<div class="row compare-table-wrapper">
+    <div class="compare-table-header">
+        <h4><span class="material-symbols-outlined">compare_arrows</span> ${tableName} Comparison</h4>
+    </div>
+    <div class="compare-table">
+        <div class="table-header">
+            <div class="table-row">
+                <div class="table-col"></div>
+                <div class="table-col"></div>
+                <div class="table-col">Field Name</div>
+                <div class="table-col">Expected Value</div>
+                <div class="table-col">Actual Value</div>
+            </div>
+        </div>
+        <div class="table-body" id="row${tableUUID}" next-row-number="1">
+            
+        </div>
+    </div>
+</div>`
+},
+testStepTableRow:function(testStatus,rowNumber, tableRowData=[]){
+  return `<div class="table-row">
+              <div class="table-col">${testStatus && (testStatus.toLowerCase().includes("pass") || testStatus == true)?'<span class="material-symbols-outlined text-success">check_circle</span>':'<span class="material-symbols-outlined text-danger">cancel</span>'}</div>
+              <div class="table-col">${rowNumber}</div>
+              ${tableRowData.map(tableColData=>{
+                return `<div class="table-col">${tableColData}</div>`
+              }).join('')}
+          </div>`
+}
+}

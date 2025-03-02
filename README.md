@@ -1,5 +1,4 @@
-# wdio-html-dark-reporter
-Starting v1.0.3 we added support CJS
+# wdio-html-dark-reporter v2 changes
 ## Usage(CJS)
 Wdio.conf.js
 
@@ -9,9 +8,10 @@ const CustomReporter = require("wdio-html-dark-reporter");
 ```
 Under reporters section:
 ```sh
-reporters: ['spec','dot',[CustomReporter, {
+    reporters: ['spec','dot',[CustomReporter, {
         outputFolder: '',
-        excludedCommands:[]
+        excludedCommands:[],
+        theme:'nvidia'
     }]],
 ```
 
@@ -57,7 +57,7 @@ await process.emit("add-test-step", {
           metaDataMetrics: [{ value: "success", status: "fail" }],
           additionalInfo: "",
           info: "db query",
-          payload: "<agent><name>AGENT_NAME</name></agent>",
+          payload: "<agent><name>AGENT</name></agent>",
         });
         process.emit("add-test-step-payload", {
           status: "pass",
@@ -72,8 +72,17 @@ await process.emit("add-test-step", {
         await process.emit("add-test-step-image", {
           screenshotName: "Page Loaded"
         });
+        let tableUUID = uuidv4();
+        await process.emit("create-test-table",{tableUUID: tableUUID, tableName: "Service", tableHeaders: ["Field Name", "Actual Value", "Expected Value"]});
+        await new Promise(resolve => {
+          process.once("create-test-table-done", resolve);
+        });
+        
+        await process.emit("create-test-table-row",{tableUUID: tableUUID, testStatus: 'pass', tableRowData:["Names", "John Doe", "John Doe"]});
+        await process.emit("create-test-table-row",{tableUUID: tableUUID, testStatus: 'fail', tableRowData:["Names", "Jane Doe", "John Doe"]});
+        console.log("spec completed");
 ```
 
-# Sample View (Feel free to share your ideas)
+- Sample screenshot of v2
+- ![Image Alt Text](samples/themes/nvidia-1.png)
 
-[View HTML Content](https://github.com/godwinsaji-j/wdio-html-dark-reporter/blob/main/consumer-cjs/test1/detailed-report.html)

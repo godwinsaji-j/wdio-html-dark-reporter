@@ -1,7 +1,7 @@
 const WDIOReporter = require("@wdio/reporter").default;
 const JSDOM = require("jsdom").JSDOM;
 const xmlFormat = require('xml-formatter');
-const components = require("./components.cjs");
+let components = require("./components.cjs");
 const fs = require("fs")
 const path = require("path")
 const uuidv4 = require("uuid").v4;
@@ -19,6 +19,7 @@ class CustomReporter extends WDIOReporter {
     this.testDOMs = new Map(); // Map to store DOMs for each test
     this.currentFieldName = "";
     this.currentTestFolderPath = "";
+    this.theme = options.theme;
     if(options.outputFolder && options.outputFolder != undefined){
       this.currentTestFolderPath = options.outputFolder
     }else{
@@ -26,6 +27,10 @@ class CustomReporter extends WDIOReporter {
     }
     this.stepNumber = 1;
     global.commandArgsMap = new Map(); // Store arguments globally per command
+    if(this.theme && this.theme != undefined){
+      components = require(`./components/${this.theme.toLowerCase()}/components.cjs`)
+      console.log("Using Theme:"+this.theme);
+    }
     this.registerEvents(this);
   }
 
@@ -97,13 +102,20 @@ class CustomReporter extends WDIOReporter {
     },{
       name: "Run Time",
       value: runTime,
-      material_symbol: "avg_time"
+      material_symbol: "avg_time",
+      additional_color_class: "blue"
     },
     {
       name: "Environment",
       value: "TEST",
       material_symbol: "south_america"
     },
+    {
+      name: "Steps Failed",
+      value: "0",
+      material_symbol: "cancel",
+      additional_color_class: "danger"
+    }
     ]);
     if (dom) {
       // Serialize the DOM to an HTML string
@@ -202,13 +214,46 @@ class CustomReporter extends WDIOReporter {
         }
       })
     });
+    process.on('create-test-table',async ({ tableUUID, tableName, tableHeaders})=>{
+      return new Promise(async (resolve,reject)=>{
+        try{
+          console.log('create-test-table',tableUUID, tableName, tableHeaders)
+          let constructedStep = await components.testStepTable(tableUUID, tableName, tableHeaders)
+          let dom = await this.testDOMs.get(global.uid);
+          let document = await dom.window.document;
+          (await document.querySelector(".test-steps")).innerHTML += constructedStep
+          process.emit('create-test-table-done')
+          resolve();
+        }catch(e){
+          console.log("Exception in create-test-table",e)
+          reject(e)
+        }
+      })
+    });
+    process.on('create-test-table-row',async ({ tableUUID, testStatus, tableRowData})=>{
+      return new Promise(async (resolve,reject)=>{
+        try{
+          console.log('create-test-table-row',tableUUID, testStatus, tableRowData)
+          let dom = await this.testDOMs.get(global.uid);
+          let document = await dom.window.document;
+          let rowNumber = (await document.querySelector(`#row${tableUUID}`)).getAttribute('next-row-number');
+          let constructedStep = await components.testStepTableRow(testStatus,rowNumber,tableRowData);
+          (await document.querySelector(`#row${tableUUID}`)).innerHTML += constructedStep;
+          (await document.querySelector(`#row${tableUUID}`)).setAttribute('next-row-number',++rowNumber);
+          resolve();
+        }catch(e){
+          console.log("Exception in create-test-table-row",e)
+          reject(e)
+        }
+      })
+    });
   }
 
   async updateReportStats(testStatsArray){
     let dom = await this.testDOMs.get(global.uid);
     let document = await dom.window.document;
     await testStatsArray.forEach(async stat=>{
-      (await document.querySelector('#stats-left')).innerHTML += components.statBox(stat.name,stat.value,stat.material_symbol);
+      (await document.querySelector('#stats-left')).innerHTML += components.statBox(stat.name,stat.value,stat.material_symbol,stat.additional_color_class);
     });
     return;
   }

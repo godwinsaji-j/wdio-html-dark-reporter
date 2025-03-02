@@ -1,4 +1,4 @@
-const CustomReporter = require("wdio-html-dark-reporter");
+const CustomReporter = require("../library/src/index.cjs");
 exports.config = {
     //
     // ====================
@@ -126,7 +126,8 @@ exports.config = {
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec','dot',[CustomReporter, {
         outputFolder: '',
-        excludedCommands:[]
+        excludedCommands:[],
+        theme:'nvidia'
     }]],
 
     // Options to be passed to Mocha.
