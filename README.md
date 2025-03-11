@@ -84,5 +84,9 @@ await process.emit("add-test-step", {
 ```
 
 - Sample screenshot of v2
-- ![Image Alt Text](samples/themes/nvidia-1.png)
+## Nvidia theme
+-Overview:
+- ![Image Alt Text](library/themes/nvidia/overview.png)
+- ![Image Alt Text](library/themes/nvidia/expand-api-step.png)
+- ![Image Alt Text](library/themes/nvidia/expand-screenshot.png)
 
