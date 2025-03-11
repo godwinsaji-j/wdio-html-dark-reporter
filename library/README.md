@@ -1,4 +1,4 @@
-# wdio-html-dark-reporter
+# wdio-html-dark-reporter v2 changes
 ## Usage(CJS)
 Wdio.conf.js
 
@@ -8,9 +8,10 @@ const CustomReporter = require("wdio-html-dark-reporter");
 ```
 Under reporters section:
 ```sh
-reporters: ['spec','dot',[CustomReporter, {
+    reporters: ['spec','dot',[CustomReporter, {
         outputFolder: '',
-        excludedCommands:[]
+        excludedCommands:[],
+        theme:'nvidia'
     }]],
 ```
 
@@ -56,7 +57,7 @@ await process.emit("add-test-step", {
           metaDataMetrics: [{ value: "success", status: "fail" }],
           additionalInfo: "",
           info: "db query",
-          payload: "<agent><name>AGENT_NAME</name></agent>",
+          payload: "<agent><name>AGENT</name></agent>",
         });
         process.emit("add-test-step-payload", {
           status: "pass",
@@ -71,4 +72,21 @@ await process.emit("add-test-step", {
         await process.emit("add-test-step-image", {
           screenshotName: "Page Loaded"
         });
+        let tableUUID = uuidv4();
+        await process.emit("create-test-table",{tableUUID: tableUUID, tableName: "Service", tableHeaders: ["Field Name", "Actual Value", "Expected Value"]});
+        await new Promise(resolve => {
+          process.once("create-test-table-done", resolve);
+        });
+        
+        await process.emit("create-test-table-row",{tableUUID: tableUUID, testStatus: 'pass', tableRowData:["Names", "John Doe", "John Doe"]});
+        await process.emit("create-test-table-row",{tableUUID: tableUUID, testStatus: 'fail', tableRowData:["Names", "Jane Doe", "John Doe"]});
+        console.log("spec completed");
 ```
+
+- Sample screenshot of v2
+## Nvidia theme
+-Overview:
+- ![Image Alt Text](themes/nvidia/overview.png)
+- ![Image Alt Text](themes/nvidia/expand-api-step.png)
+- ![Image Alt Text](themes/nvidia/expand-screenshot.png)
+

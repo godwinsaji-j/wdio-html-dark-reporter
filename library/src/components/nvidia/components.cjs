@@ -495,10 +495,12 @@ module.exports={
       .modal .body {
         padding: 1rem;
         height: 98vh;
+        max-height:90vh;
         width: 98vw;
+        overflow-y:auto;
       }
       .modal .body img{
-        height:100%
+        height:100%;
         object-fit: scale-down;
       }
       .modal .heading .icon {
@@ -507,13 +509,14 @@ module.exports={
         padding: 0.5rem 1rem;
       }
       .modal .row.screenshot{
-        height:88vh
+        height:88vh;
       }
       .modal .row.screenshot img{
-        height:88vh
+        height:88vh;
       }
       .modal .row.screenshot img:hover{
         transform: scale(1.5); /* Scale the image on hover */
+        transform-origin: top left;
       }
       .icon.screenshot.screenshot {
         background: var(--color-blue);
@@ -692,7 +695,7 @@ module.exports={
           grid-template-columns: minmax(1rem,0.1fr) minmax(2rem,0.2fr) 1fr 1fr minmax(3rem,0.3fr);
           gap: 1rem;
           width: 100%;
-          //background-color: var(--secondary-bg-color);
+          /*background-color: var(--secondary-bg-color);*/
           background-color: var(--background-color);
           color: var(--primary-text-color);
           border: 0.2rem solid var(--secondary-bg-color);
@@ -732,7 +735,7 @@ module.exports={
           align-items: flex-start;
           justify-content: center;
           gap: 1rem;
-          overflow-x: auto; /* Enable horizontal scrolling */
+          /* overflow-x: auto; Enable horizontal scrolling */
           width: 100%;
         }
         .detailed-info .payload {

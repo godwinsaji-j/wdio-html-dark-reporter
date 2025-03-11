@@ -48,6 +48,7 @@ class CustomReporter extends WDIOReporter {
 
   onTestStart(test) {
     this.currentTestFolderPath = this.currentTestFolderPath+`${test.title.replace(/[^a-z0-9]/gi,"_")}`;
+    global.currentTestResultFolderPath = this.currentTestFolderPath;
     global.currentTestScreenshotPath = this.currentTestFolderPath + "\\screenshots\\"
     console.log("this.currentTestFolderPath",this.currentTestFolderPath)
     try{
